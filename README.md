@@ -14,7 +14,7 @@ State management is a critical aspect of building robust and maintainable React 
 
 At the core of Jotai's state management system are atoms. An atom is a container for a value that can be read synchronously and updated asynchronously. Think of atoms as individual units of state that you can use to manage various aspects of your application's data. Here's a breakdown of the essential components of an atom:
 
-### Atom Interface
+##  Atom Interface
 
 ```ts
 interface Atom<AtomType> {
@@ -28,7 +28,7 @@ interface Atom<AtomType> {
 - `set` : Allows you to update the value of the atom asynchronously.
 - `subscribe` : Lets you listen for changes to the atom's value and provides a mechanism to unsubscribe when no longer needed.
 
-## Creating and Cloning Jotai Atoms
+## Creating and Cloning Jotai Atoms
 
 Creating a Jotai atom is straightforward. You can use the createAtom function to initialize an atom with an initial value or a function to compute the initial value. Inside the createAtom function, we initialize the atom's value and set up subscribers to track changes.
 
@@ -48,11 +48,11 @@ function cloneAtom<AtomType>(sourceAtom: Atom<AtomType>): Atom<AtomType> {
 }
 ```
 
-## Building Custom Hooks for Jotai
+## Building Custom Hooks for Jotai
 
 Now that we understand the basics of atoms, let's simplify state management in our React components by creating custom hooks. We'll define two custom hooks: `useCustomAtom` and `useCustomAtomValue`.
 
-### useCustomAtom
+##  useCustomAtom
 
 The `useCustomAtom` hook allows us to both read and update the value of an atom. It returns the current state and a function to set a new state. By using `useSyncExternalStore`, we seamlessly integrate the atom's subscription and get methods into our React component, making it easy to manage state.
 
@@ -64,7 +64,7 @@ function useCustomAtom<AtomType>(atom: Atom<AtomType>) {
 }
 ```
 
-### useCustomAtomValue
+##  useCustomAtomValue
 
 The `useCustomAtomValue` hook simplifies state retrieval. It only returns the current value of the atom, making it perfect for read-only use cases.
 
@@ -74,7 +74,7 @@ function useCustomAtomValue<AtomType>(atom: Atom<AtomType>) {
 }
 ```
 
-## Understanding useSyncExternalStore in Depth
+## Understanding useSyncExternalStore in Depth
 
 `useSyncExternalStore` is a React hook provided by Jotai that plays a crucial role in bridging the asynchronous state management of Jotai with the synchronous rendering cycle of React. It ensures that React components react efficiently to changes in the Jotai atom and optimizes rendering to prevent unnecessary re-renders.
 
@@ -85,7 +85,7 @@ When you use `useSyncExternalStore` within a React component, you are essentiall
 
 By doing so, `useSyncExternalStore` simplifies the integration of Jotai atoms with React components, allowing developers to seamlessly use Jotai for state management within their React applications. It ensures that React components remain responsive to state changes in Jotai atoms while maintaining rendering efficiency.
 
-## Example: Building a Counter App with Jotai
+## Example: Building a Counter App with Jotai
 
 This section will walk you through building a simple counter application using Jotai atoms and custom hooks. We'll start by creating a new React project using Create React App. Copy the following code into a new file called `jotai.ts` in your project's `src` directory. This file will contain all the code related to Jotai atoms and custom hooks.
 
@@ -208,7 +208,7 @@ const countAtom = createAtom<number>(0);
 export { countAtom };
 ```
 
-### Creating the Counter Display Component
+##  Creating the Counter Display Component
 
 Let's create a new component called `CounterDisplay` to display the current count. We'll use the `useCustomAtomValue` hook to retrieve the current count from the `countAtom` atom and display it in our component.
 
@@ -229,7 +229,7 @@ function CounterDisplay() {
 export default CounterDisplay;
 ```
 
-### Creating the Counter Button Component
+##  Creating the Counter Button Component
 
 Next, we'll create a new component called `CounterButton` to manage the counter actions (`increment` | `decrement` | `reset` | `random`). We'll use the `useCustomAtom` hook to retrieve the current count from the `countAtom` atom and update the count when the user clicks the button.
 
@@ -280,7 +280,7 @@ function CounterButton({
 export default CounterButton;
 ```
 
-### Use the Counter Components in App
+##  Use the Counter Components in App
 
 Finally, we'll use the `CounterDisplay` and `CounterButton` components in our `App` component to display the current count and allow the user to update the count.
 
@@ -311,7 +311,7 @@ export default App;
 
 🎉 Congratulations! You've successfully built a counter application using Jotai atoms and custom hooks. You can find the complete source code for this project on [GitHub]()
 
-## 📚 Conclusion
+## 📚 Conclusion
 
 In this article, we've embarked on a journey through the powerful world of Jotai, exploring how to create and clone atoms to manage state effortlessly in React applications. By understanding the core concepts of atoms, we've laid the foundation for building robust state management systems.
 
@@ -325,7 +325,7 @@ With the knowledge gained from this article, you're well-equipped to harness the
 
 So, go ahead and explore the world of Jotai in your React applications, and let the synergy of these technologies elevate your development experience to new heights. Happy coding!
 
-## 📚 Resources
+## 📚 Resources
 
 - [Jotai Documentation](https://jotai.org/)
 - [useSyncExternalStore Discussion](https://github.com/reactwg/react-18/discussions/86)
